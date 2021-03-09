@@ -2,9 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import LogoImage from '../../images/ats-logo.png';
 import { LanguageSwitcher } from '../../shared/components/languageSwitcher';
-import { H1 } from '../../theme/typography';
-import { Users } from '../../shared/components/users';
 import { Container, Logo } from './home.styles';
 
 export const Home = () => {
@@ -14,20 +13,16 @@ export const Home = () => {
     <Container>
       <Helmet
         title={intl.formatMessage({
-          defaultMessage: 'Homepage',
-          description: 'Home / page title',
+          defaultMessage: 'Automation Technology Solutions',
         })}
       />
 
-      <H1>
-        <FormattedMessage defaultMessage="Hello world!" description="Home / title" />
-      </H1>
-
-      <Logo />
-
+      <Logo src={LogoImage} />
       <LanguageSwitcher />
 
-      <Users />
+      <p>
+        <FormattedMessage id="page.underConstruction" defaultMessage="Strona w budowie" />
+      </p>
     </Container>
   );
 };

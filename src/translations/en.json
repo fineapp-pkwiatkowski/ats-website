@@ -1,1 +1,27 @@
-{}
+{
+  "1/yWPl": {
+    "defaultMessage": "Not found",
+    "description": "Not found / page title"
+  },
+  "ZRj8OZ": {
+    "defaultMessage": "Apptension Boilerplate",
+    "description": "App / Page title"
+  },
+  "decI4v": {
+    "defaultMessage": "Automation Technology Solutions"
+  },
+  "mock-message-id": {},
+  "page.underConstruction": {
+    "defaultMessage": "Page under construction"
+  },
+  "rOfhxB": {
+    "defaultMessage": "Error: 404",
+    "description": "Not found / error message"
+  },
+  "unsupported.pageTitle": {
+    "defaultMessage": "Unsupported Browser"
+  },
+  "unsupported.title": {
+    "defaultMessage": "Unsupported Browser"
+  }
+}
