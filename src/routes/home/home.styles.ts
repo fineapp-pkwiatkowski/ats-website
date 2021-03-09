@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { ReactComponent as LogoSVG } from '../../images/icons/logo.svg';
 
 export const Container = styled.div`
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +10,8 @@ export const Container = styled.div`
   text-align: center;
 `;
 
-export const Logo = styled(LogoSVG)`
-  width: 100px;
-  margin-bottom: 20px;
+export const Logo = styled.img`
+  width: 80%;
+  max-width: 250px;
+  margin-bottom: 60px;
 `;
