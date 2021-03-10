@@ -1,5 +1,5 @@
 export const fontFamily = {
-  primary: 'Arial',
+  primary: 'Montserrat',
 };
 
 export const fontWeight = {

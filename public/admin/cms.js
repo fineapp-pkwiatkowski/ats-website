@@ -6106,7 +6106,7 @@
   \********************************************************************************/
       /*! no static exports found */
       /***/ function (module, exports) {
-        /**
+        w/**
          * @typedef Theme
          * @property reset
          * @property black
@@ -64531,18 +64531,18 @@ object-assign
               (function () {
                 /* Abstract event binding
       Example:
-      
+
           var MyEventEmitter = function(){};
           MyEventEmitter.prototype = new Pusher.EventsDispatcher;
-      
+
           var emitter = new MyEventEmitter();
-      
+
           // Bind to single event
           emitter.bind('foo_event', function(data){ alert(data)} );
-      
+
           // Bind to all
           emitter.bind_all(function(eventName, data){ alert(data) });
-      
+
       --------------------------------------------------------*/
                 function CallbackRegistry() {
                   this._callbacks = {};
