@@ -4,10 +4,10 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   pageTitle: {
     id: 'unsupported.pageTitle',
-    defaultMessage: 'Unsupported Browser',
+    defaultMessage: 'Niewspierana przeglądarka',
   },
   title: {
     id: 'unsupported.title',
-    defaultMessage: 'Unsupported Browser',
+    defaultMessage: 'Niewspierana przeglądarka',
   },
 });

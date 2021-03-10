@@ -1,27 +1,11 @@
 {
-  "1/yWPl": {
-    "defaultMessage": "Not found",
-    "description": "Not found / page title"
-  },
-  "ZRj8OZ": {
-    "defaultMessage": "Apptension Boilerplate",
-    "description": "App / Page title"
-  },
-  "decI4v": {
-    "defaultMessage": "Automation Technology Solutions"
-  },
-  "mock-message-id": {},
-  "page.underConstruction": {
-    "defaultMessage": "Strona w budowie"
-  },
-  "rOfhxB": {
-    "defaultMessage": "Error: 404",
-    "description": "Not found / error message"
-  },
-  "unsupported.pageTitle": {
-    "defaultMessage": "Unsupported Browser"
-  },
-  "unsupported.title": {
-    "defaultMessage": "Unsupported Browser"
-  }
+  "1/yWPl": "Not found",
+  "decI4v": "Automation Technology Solutions",
+  "page.info.country": "Polska",
+  "page.info.downloadLink": "Kliknij tutaj",
+  "page.info.downloadText": ", aby pobrać prezentację ATS",
+  "page.underConstruction": "Strona w budowie",
+  "rOfhxB": "Error: 404",
+  "unsupported.pageTitle": "Niewspierana przeglądarka",
+  "unsupported.title": "Niewspierana przeglądarka"
 }

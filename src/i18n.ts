@@ -8,14 +8,14 @@ export const LOCALES = {
 
 export type MessagesObject = Record<string, string>;
 
-export const DEFAULT_LOCALE = LOCALES.ENGLISH;
+export const DEFAULT_LOCALE = LOCALES.POLISH;
 
 export const appLocales = [LOCALES.ENGLISH, LOCALES.POLISH];
 
 export const formatTranslationMessages = (locale: string, messages: MessagesObject): MessagesObject => {
   const defaultFormattedMessages: MessagesObject =
     // @ts-ignore
-    locale !== DEFAULT_LOCALE ? formatTranslationMessages(DEFAULT_LOCALE, enTranslationMessages) : {};
+    locale !== DEFAULT_LOCALE ? formatTranslationMessages(DEFAULT_LOCALE, enTranslationMessages as MessagesObject) : {};
   return Object.keys(messages).reduce((formattedMessages, key) => {
     const formattedMessage =
       !messages[key] && locale !== DEFAULT_LOCALE ? defaultFormattedMessages[key] : messages[key];
@@ -24,8 +24,8 @@ export const formatTranslationMessages = (locale: string, messages: MessagesObje
 };
 
 export const translationMessages = {
-  // @ts-ignore
+    // @ts-ignore
   [LOCALES.ENGLISH]: formatTranslationMessages(LOCALES.ENGLISH, enTranslationMessages),
-  // @ts-ignore
+    // @ts-ignore
   [LOCALES.POLISH]: formatTranslationMessages(LOCALES.POLISH, plTranslationMessages),
 };
