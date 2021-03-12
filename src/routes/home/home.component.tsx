@@ -46,14 +46,14 @@ export const Home = () => {
       <InfoContainer>
         <InfoRow>
           <Icon>
-            <PhoneIcon fontSize="small" />
+            <EmailIcon fontSize="small" />
           </Icon>
           <Email href="mailto:biuro@e-ats.pl">biuro@e-ats.pl</Email>
         </InfoRow>
 
         <InfoRow>
           <Icon>
-            <EmailIcon fontSize="small" />
+            <PhoneIcon fontSize="small" />
           </Icon>
           <Phone href="tel:+48602119684">+48 602 119 684</Phone>
         </InfoRow>
