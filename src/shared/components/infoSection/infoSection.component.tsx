@@ -1,16 +1,28 @@
-import React, { ReactNode } from 'react';
+import React  from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
-import { Container } from './infoSection.styles';
+import ImageSrc from '../../../images/automation.jpg';
+import { Container, Tile, Title, Content, Description, Image, ImageContainer } from './infoSection.styles';
+import messages from './infoSection.messages';
 
-export interface InfoSectionProps {
-  children?: ReactNode;
-}
+export const InfoSection = () => {
+  const intl = useIntl();
 
-export const InfoSection = ({ children }: InfoSectionProps) => {
   return (
     <Container>
-      <h1>InfoSection component</h1>
-      {children}
+      <Tile>
+        <Title>
+          <FormattedMessage {...messages.title} />
+        </Title>
+        <Content>
+          <Description>
+            <FormattedMessage {...messages.description} />
+          </Description>
+          <ImageContainer>
+            <Image src={ImageSrc} alt={intl.formatMessage(messages.imageAlt)}/>
+          </ImageContainer>
+        </Content>
+      </Tile>
     </Container>
   );
 };

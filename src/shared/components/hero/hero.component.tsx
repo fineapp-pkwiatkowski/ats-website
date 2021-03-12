@@ -1,6 +1,8 @@
 import React  from 'react';
 
-import { Container, VideoContainer, Video } from './hero.styles';
+import { FormattedMessage } from 'react-intl';
+import { Container, VideoContainer, Video, Title } from './hero.styles';
+import messages from './hero.messages';
 
 
 export const Hero = () => {
@@ -8,8 +10,16 @@ export const Hero = () => {
     <Container>
       <VideoContainer>
         <Video autoPlay loop muted>
-          <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
+          <source src="./hero-video.mp4" type="video/mp4" />
         </Video>
+        <Title>
+          <FormattedMessage
+            {...messages.title}
+            values={{
+              br: () => <><br/></>,
+            }}
+          />
+        </Title>
       </VideoContainer>
     </Container>
   );

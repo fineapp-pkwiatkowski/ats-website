@@ -1,16 +1,17 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import { Container } from './tilesSection.styles';
+import messages from './tilesSection.messages';
+import { Container, Title, Content } from './tilesSection.styles';
 
-export interface TilesSectionProps {
-  children?: ReactNode;
-}
-
-export const TilesSection = ({ children }: TilesSectionProps) => {
+export const TilesSection = () => {
   return (
     <Container>
-      <h1>TilesSection component</h1>
-      {children}
+      <Title>
+        <FormattedMessage {...messages.title} />
+      </Title>
+      <Content>
+      </Content>
     </Container>
   );
 };

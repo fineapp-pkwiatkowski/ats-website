@@ -10,7 +10,7 @@
   "plugins": ["react-hooks", "formatjs"],
   "rules": {
     "import/order": ["error"],
-    "formatjs/no-offset": "error"
+    "formatjs/no-offset": "off"
   },
   "overrides": [
     {
