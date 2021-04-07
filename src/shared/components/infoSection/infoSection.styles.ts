@@ -15,6 +15,7 @@ export const Container = styled.section`
   ${sectionNarrowStyles};
   ${maxWidthStyles};
   margin-top: ${2 * SPACING_MOBILE}px;
+  overflow: visible;
 
   @media (min-width: ${sizes[Breakpoint.DESKTOP]}px) {
     margin-top: ${SPACING_DESKTOP}px;
