@@ -12,7 +12,7 @@ export enum Breakpoint {
 export const sizes: Record<Breakpoint, number> = {
   [Breakpoint.DESKTOP_FULL]: 1920,
   [Breakpoint.DESKTOP_WIDE]: 1440,
-  [Breakpoint.DESKTOP]: 1280,
+  [Breakpoint.DESKTOP]: 1024,
   [Breakpoint.TABLET]: 768,
   [Breakpoint.MOBILE]: 320,
 };

@@ -9,7 +9,6 @@ import { ROUTES } from './app.constants';
 //<-- IMPORT ROUTE -->
 
 const Home = asyncComponent(() => import('./home'), 'Home');
-const NotFound = asyncComponent(() => import('./notFound'), 'NotFound');
 
 const MatchedLanguageComponent = () => {
   const match = useRouteMatch();
@@ -19,10 +18,11 @@ const MatchedLanguageComponent = () => {
         <Route exact path={`${match.path}${ROUTES.home}`}>
           <Home />
         </Route>
+
         {/* <-- INJECT ROUTE --> */}
 
         <Route>
-          <NotFound />
+          <Redirect to={ROUTES.home} />
         </Route>
       </Switch>
     </App>
@@ -42,7 +42,7 @@ export default () => {
 
       <IntlProvider locale={DEFAULT_LOCALE} messages={translationMessages[DEFAULT_LOCALE]}>
         <Route>
-          <NotFound />
+          <Redirect to={ROUTES.home} />
         </Route>
       </IntlProvider>
     </Switch>

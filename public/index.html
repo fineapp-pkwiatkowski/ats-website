@@ -38,7 +38,10 @@
     Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
     work correctly both with client-side routing and a non-root public URL.
     Learn how to configure a non-root public URL by running `npm run build`.
+
   -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
     <title>Automation Technology Solutions</title>
   </head>
   <body>
@@ -47,6 +50,14 @@
       >If you're seeing this message, that means <strong>JavaScript has been disabled on your browser</strong>, please
       <strong>enable JS</strong> to make this app work.
     </noscript>
+
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="companyName" />
+      <input type="tel" name="phoneNumber" />
+      <textarea name="message"></textarea>
+    </form>
 
     <div class="unsupported-page" style="display: none">
       <h1 class="heading" />
