@@ -22,13 +22,6 @@ export const Home = () => {
         title={intl.formatMessage({
           defaultMessage: 'Automation Technology Solutions - Nasze rozwiązania stworzone dla potrzeb Twojej firmy',
         })}
-        meta={[
-          {
-            name: 'description',
-            content:
-              'Kompleksowe wsparcie w procesach automatyzacji. Pomożemy Ci usprawnić i unowocześnić dotychczasowe rozwiązania, zgodnie z Twoimi indywidualnymi wymaganiami. Dokonujemy optymalizacji, modernizacji i robotyzacji procesów technologicznych. Świadczymy kompleksowe usługi od konsultacji technicznych, poprzez realizację, aż po nadzór powykonawczy.',
-          },
-        ]}
       />
 
       <Header />
