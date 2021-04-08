@@ -27,6 +27,18 @@ export const VideoContainer = styled.div`
   overflow: hidden;
 `;
 
+export const VideoBackground = styled.img`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./hero-blurred.png') no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 0;
+`;
+
 export const Video = styled.video`
   position: absolute;
   top: 50%;
