@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useIntl } from 'react-intl';
+import { useSpring, config } from 'react-spring';
 
 import { Header } from '../../shared/components/header';
 import { Hero } from '../../shared/components/hero';
@@ -10,14 +11,19 @@ import { ContactSection } from '../../shared/components/contactSection';
 import { AboutSection } from '../../shared/aboutSection';
 import { LogoSection } from '../../shared/logoSection';
 import { Footer } from '../../shared/components/footer';
-import { Cookies } from '../../shared/components/cookies';
 import { Container } from './home.styles';
 
 export const Home = () => {
   const intl = useIntl();
+  const animationProps = useSpring({
+    opacity: 1,
+    transform: 'translateY(0)',
+    from: { opacity: 0, transform: 'translateY(-50px)' },
+    config: config.molasses,
+  });
 
   return (
-    <Container>
+    <Container style={animationProps}>
       <Helmet
         title={intl.formatMessage({
           defaultMessage: 'Automation Technology Solutions - Nasze rozwiązania stworzone dla potrzeb Twojej firmy',
@@ -32,7 +38,6 @@ export const Home = () => {
       <LogoSection />
       <ContactSection />
       <Footer />
-      <Cookies />
     </Container>
   );
 };

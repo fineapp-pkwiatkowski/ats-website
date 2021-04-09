@@ -32,7 +32,6 @@ export const AppComponent = ({ children }: AppComponentProps) => {
           <FormattedMessage defaultMessage="Automation Technology Solutions">
             {([pageTitle]: [string]) => <Helmet titleTemplate={`${pageTitle}`} defaultTitle={pageTitle} />}
           </FormattedMessage>
-
           <GlobalStyle />
           <ResponsiveThemeProvider>{React.Children.only(children)}</ResponsiveThemeProvider>
         </Fragment>

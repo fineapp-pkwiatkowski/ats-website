@@ -4,7 +4,9 @@ import { IntlProvider } from 'react-intl';
 
 import { DEFAULT_LOCALE, appLocales, translationMessages } from '../i18n';
 import { asyncComponent } from '../shared/utils/asyncComponent';
+import { Cookies } from '../shared/components/cookies';
 import { AppComponent as App } from './app.component';
+
 import { ROUTES } from './app.constants';
 //<-- IMPORT ROUTE -->
 
@@ -17,6 +19,7 @@ const MatchedLanguageComponent = () => {
       <Switch>
         <Route exact path={`${match.path}${ROUTES.home}`}>
           <Home />
+          <Cookies />
         </Route>
 
         {/* <-- INJECT ROUTE --> */}

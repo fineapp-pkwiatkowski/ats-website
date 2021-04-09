@@ -3,7 +3,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import ReactScroll from 'react-scroll';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { useSelector } from 'react-redux';
-import { useClickAway, useLockBodyScroll, useToggle } from 'react-use';
+import { useClickAway, useLockBodyScroll } from 'react-use';
+import { useSpring } from 'react-spring';
 
 import { localesSelectors } from '../../../modules/locales';
 import { ACTIVITY_SECTION_NAME } from '../tilesSection/tilesSection.component';

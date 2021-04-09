@@ -15,7 +15,7 @@ export const Container = styled.div<{ visible: boolean }>`
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.05);
   font-size: 14px;
   transition: transform 0.3s ease-in-out;
-  transition-delay: ${({ visible }) => (visible ? '0.5s' : '0.2s')};
+  transition-delay: ${({ visible }) => (visible ? '1.5s' : '0.2s')};
   transform: ${({ visible }) => (visible ? 'translateY(0)' : 'translateY(100%)')};
   padding: ${SPACING_MOBILE * 2}px ${SPACING_MOBILE * 2}px;
 `;

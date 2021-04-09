@@ -372,9 +372,9 @@ export const BurgerButton = styled.button.attrs({ type: 'button' })<{ white: boo
 
 export const NavMenu = styled.div<{ open: boolean }>`
   position: fixed;
-  top: 0;
+  top: -50px;
   right: 100%;
-  height: 100vh;
+  height: calc(100vh + 50px);
   width: 100%;
   background-color: ${colors.white};
   z-index: -1;

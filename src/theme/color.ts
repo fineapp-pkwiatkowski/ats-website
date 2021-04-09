@@ -14,6 +14,8 @@ export const colors = {
   white75: 'rgba(255,255,255,0.75)',
   black: '#000000',
   blue: '#1e3458',
+  blueAverage1: '#22698f',
+  blueAverage2: '#3483ad',
   blueHover: '#21466c',
   blueActive: '#212144',
   error: '#b11015',

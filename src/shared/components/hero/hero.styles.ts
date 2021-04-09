@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { animated } from 'react-spring';
 
 import { colors } from '../../../theme/color';
 import { maxWidthStyles, sectionStyles, SPACING_DESKTOP, SPACING_MOBILE, SPACING_TABLET } from '../../../theme/general';
@@ -19,12 +20,31 @@ export const Container = styled.section`
   }
 `;
 
+const backgroundAnimation = keyframes`
+  0% {
+      background-position: 100% 0%;
+  }
+  100% {
+      background-position: 15% 100%;
+  }
+`;
+
 export const VideoContainer = styled.div`
   width: 100%;
   height: 60vh;
   max-height: 500px;
   position: relative;
   overflow: hidden;
+  background: ${colors.blueAverage1};
+  background: linear-gradient(
+    45deg,
+    ${colors.blueAverage1} 0%,
+    ${colors.blueAverage2} 33%,
+    ${colors.blueAverage1} 66%,
+    ${colors.blueAverage2} 100%
+  );
+  background-size: 400% 400%;
+  animation: ${backgroundAnimation} 3s linear infinite;
 `;
 
 export const VideoBackground = styled.img`
@@ -69,7 +89,7 @@ export const Video = styled.video`
   }
 `;
 
-export const Title = styled.h1`
+export const Title = styled(animated.h1)`
   position: absolute;
   height: 100%;
   display: flex;
