@@ -20,7 +20,7 @@ export const Hero = () => {
       <VideoContainer>
         <VideoBackground />
         <Video autoPlay loop muted poster={VideoPoster}>
-          <source src="./hero-video.m" type="video/mp4" />
+          <source src="./hero-video.mp4" type="video/mp4" />
         </Video>
         <Title style={animationProps}>
           <FormattedMessage
