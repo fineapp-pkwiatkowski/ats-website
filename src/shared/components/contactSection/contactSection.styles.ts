@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { animated } from 'react-spring';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {
@@ -159,7 +160,7 @@ export const Error = styled.p`
   font-size: 12px;
 `;
 
-export const SubmitButton = styled.button`
+export const SubmitButton = styled(animated.button)`
   ${defaultButtonStyles};
   align-self: flex-end;
 

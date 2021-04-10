@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import ReactScroll, { Element } from 'react-scroll';
+import { useSpring, config } from 'react-spring';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
 import { has } from 'ramda';
@@ -55,6 +56,13 @@ const SCROLL_PROPS = {
 
 export const ContactSection = () => {
   const intl = useIntl();
+  const [pressedButton, setPressedButton] = useState(false);
+  const { x } = useSpring({ from: { x: 1 }, x: pressedButton ? 0.95 : 1, config: config.wobbly });
+
+  const handlePressButton = () => {
+    setPressedButton(true);
+    setTimeout(() => setPressedButton(false), 200);
+  };
 
   const [formStatus, setFormStatus] = useState<FormStatus>(FormStatus.IDLE);
   const isSending = formStatus === FormStatus.SENDING;
@@ -233,7 +241,16 @@ export const ContactSection = () => {
               </InputWrapper>
             </FormRow>
 
-            <SubmitButton type="submit">
+            <SubmitButton
+              style={{ transform: x.to((x) => `scale(${x})`) }}
+              type="submit"
+              onPointerDown={() => {
+                setPressedButton(true);
+              }}
+              onPointerUp={() => {
+                setPressedButton(false);
+              }}
+            >
               {isSending ? (
                 <FormattedMessage {...messages.submitButtonSending} />
               ) : (
