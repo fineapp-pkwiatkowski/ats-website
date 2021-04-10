@@ -7,22 +7,30 @@ import { Container, VideoContainer, Video, Title, VideoBackground } from './hero
 import messages from './hero.messages';
 
 export const Hero = () => {
-  const animationProps = useSpring({
+  const containerAnimationProps = useSpring({
+    opacity: 1,
+    transform: 'translateY(0)',
+    from: { opacity: 0, transform: 'translateY(-25px)' },
+    delay: 100,
+    config: config.molasses,
+  });
+
+  const titleAnimationProps = useSpring({
     opacity: 1,
     transform: 'translateY(0)',
     from: { opacity: 0, transform: 'translateY(-40px)' },
-    delay: 100,
+    delay: 300,
     config: config.slow,
   });
 
   return (
-    <Container>
+    <Container style={containerAnimationProps}>
       <VideoContainer>
         <VideoBackground />
         <Video autoPlay loop muted poster={VideoPoster}>
           <source src="./hero-video.mp4" type="video/mp4" />
         </Video>
-        <Title style={animationProps}>
+        <Title style={titleAnimationProps}>
           <FormattedMessage
             {...messages.title}
             values={{

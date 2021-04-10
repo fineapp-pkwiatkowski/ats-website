@@ -1,8 +1,10 @@
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Element } from 'react-scroll';
+import { useSpring } from 'react-spring';
 
 import { NumberTile } from '../numberTile';
+import { animationProps } from '../components/infoSection/infoSection.component';
 import {
   Container,
   Title,
@@ -21,10 +23,11 @@ export const ABOUT_SECTION_NAME = 'about';
 
 export const AboutSection = () => {
   const intl = useIntl();
+  const animProps = useSpring({ ...animationProps, delay: 500 });
 
   return (
     <Element name={ABOUT_SECTION_NAME}>
-      <Container>
+      <Container style={animProps}>
         <Title>
           <FormattedMessage {...messages.title} />
         </Title>

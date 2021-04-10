@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
 import { colors } from '../../../theme/color';
 import { sizes, Breakpoint } from '../../../theme/media';
@@ -11,7 +12,7 @@ import {
   SPACING_TABLET,
 } from '../../../theme/general';
 
-export const Container = styled.section`
+export const Container = styled(animated.section)`
   ${sectionNarrowStyles};
   ${maxWidthStyles};
   margin-top: ${2 * SPACING_MOBILE}px;
@@ -46,11 +47,11 @@ export const Tile = styled.div`
   }
 `;
 
-export const Title = styled.h2`
+export const Title = styled(animated.h2)`
   ${sectionTitle};
 `;
 
-export const Content = styled.div`
+export const Content = styled(animated.div)`
   display: flex;
   position: relative;
   flex-direction: column;

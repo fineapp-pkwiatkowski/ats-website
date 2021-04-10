@@ -4,7 +4,7 @@ import ReactScroll from 'react-scroll';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { useSelector } from 'react-redux';
 import { useClickAway, useLockBodyScroll } from 'react-use';
-import { useSpring } from 'react-spring';
+import { useSpring, config } from 'react-spring';
 
 import { localesSelectors } from '../../../modules/locales';
 import { ACTIVITY_SECTION_NAME } from '../tilesSection/tilesSection.component';
@@ -70,6 +70,12 @@ export const Header = () => {
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [scrollLocked, setScrollLocked] = useState(false);
+  const animationProps = useSpring({
+    opacity: 1,
+    transform: 'translateY(0)',
+    from: { opacity: 0, transform: 'translateY(-25px)' },
+    config: config.molasses,
+  });
 
   useLockBodyScroll(scrollLocked);
 
@@ -216,7 +222,7 @@ export const Header = () => {
   const renderMobileHeader = () => (
     <>
       <DummyMobileNavbar />
-      <MobileNavbar scrolled={scrolledNav}>
+      <MobileNavbar scrolled={scrolledNav} style={animationProps}>
         <LogoButton type="button" onClick={goToTop} aria-label={intl.formatMessage(messages.logoAriaLabelGoTop)}>
           <MobileLogo white={scrolledNav && !mobileNavOpen} />
         </LogoButton>
@@ -228,7 +234,7 @@ export const Header = () => {
 
   const renderDesktopHeader = () => (
     <Container>
-      <TopHeader>
+      <TopHeader style={animationProps}>
         <TopHeaderLogo />
         {renderNavigation()}
       </TopHeader>

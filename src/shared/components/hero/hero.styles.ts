@@ -5,7 +5,7 @@ import { colors } from '../../../theme/color';
 import { maxWidthStyles, sectionStyles, SPACING_DESKTOP, SPACING_MOBILE, SPACING_TABLET } from '../../../theme/general';
 import { Breakpoint, sizes } from '../../../theme/media';
 
-export const Container = styled.section`
+export const Container = styled(animated.section)`
   ${sectionStyles};
   ${maxWidthStyles};
   justify-content: center;

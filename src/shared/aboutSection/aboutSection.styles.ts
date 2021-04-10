@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { animated } from 'react-spring';
 
 import {
   maxNarrowWidthStyles,
@@ -11,7 +12,7 @@ import { colors } from '../../theme/color';
 import { ReactComponent as LogoSVG } from '../../images/ats-logo-vertical.svg';
 import { Breakpoint, sizes } from '../../theme/media';
 
-export const Container = styled.section`
+export const Container = styled(animated.section)`
   ${sectionWhiteStyles};
 `;
 

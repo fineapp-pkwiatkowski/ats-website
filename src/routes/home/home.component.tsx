@@ -23,7 +23,7 @@ export const Home = () => {
   });
 
   return (
-    <Container style={animationProps}>
+    <Container>
       <Helmet
         title={intl.formatMessage({
           defaultMessage: 'Automation Technology Solutions - Nasze rozwiązania stworzone dla potrzeb Twojej firmy',

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { CircleFlag as CircleFlagComponent } from 'react-circle-flags';
+import { animated } from 'react-spring';
 
 import { ReactComponent as LogoSVG } from '../../../images/ats-logo.svg';
 import { ReactComponent as NavbarLogoSVG } from '../../../images/ats-logo-acronym.svg';
@@ -9,7 +10,7 @@ import { Breakpoint, media, sizes } from '../../../theme/media';
 
 export const Container = styled.header``;
 
-export const TopHeader = styled.div`
+export const TopHeader = styled(animated.div)`
   ${maxWidthStyles};
   width: 100%;
   padding: 40px ${SPACING_DESKTOP}px;
@@ -107,7 +108,7 @@ export const DummyMobileNavbar = styled.div`
   height: 100px;
 `;
 
-export const MobileNavbar = styled.header<{ scrolled: boolean }>`
+export const MobileNavbar = styled(animated.header)<{ scrolled: boolean }>`
   position: sticky;
   left: 0;
   top: 0;

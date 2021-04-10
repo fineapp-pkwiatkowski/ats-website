@@ -1,7 +1,9 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Element } from 'react-scroll';
+import { useSpring } from 'react-spring';
 
+import { animationProps } from '../infoSection/infoSection.component';
 import messages from './tilesSection.messages';
 import {
   Container,
@@ -22,9 +24,10 @@ import {
 export const ACTIVITY_SECTION_NAME = 'activity';
 
 export const TilesSection = () => {
+  const animProps = useSpring({ ...animationProps, delay: 400 });
   return (
     <Element name={ACTIVITY_SECTION_NAME}>
-      <Container>
+      <Container style={animProps}>
         <Title>
           <FormattedMessage {...messages.title} />
         </Title>
