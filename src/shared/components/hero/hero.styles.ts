@@ -59,7 +59,7 @@ export const VideoBackground = styled.img`
   z-index: 0;
 `;
 
-export const Video = styled.video`
+export const Video = styled(animated.video)`
   position: absolute;
   top: 50%;
   bottom: 0;

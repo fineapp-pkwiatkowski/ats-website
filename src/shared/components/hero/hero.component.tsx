@@ -15,6 +15,13 @@ export const Hero = () => {
     config: config.molasses,
   });
 
+  const videoAnimationProps = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    delay: 300,
+    config: config.molasses,
+  });
+
   const titleAnimationProps = useSpring({
     opacity: 1,
     transform: 'translateY(0)',
@@ -27,7 +34,7 @@ export const Hero = () => {
     <Container style={containerAnimationProps}>
       <VideoContainer>
         <VideoBackground />
-        <Video autoPlay loop muted poster={VideoPoster}>
+        <Video autoPlay loop muted poster={VideoPoster} style={videoAnimationProps}>
           <source src="./hero-video.mp4" type="video/mp4" />
         </Video>
         <Title style={titleAnimationProps}>
