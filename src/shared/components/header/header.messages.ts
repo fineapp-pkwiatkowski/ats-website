@@ -2,6 +2,10 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
+  homepage: {
+    id: `header.homepage`,
+    defaultMessage: 'Strona główna',
+  },
   activityLink: {
     id: `header.activityLink`,
     defaultMessage: 'Działalność',

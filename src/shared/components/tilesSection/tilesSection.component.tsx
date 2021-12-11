@@ -91,7 +91,9 @@ export const TilesSection = () => {
             </Tile>
             <Tile>
               <PLCProgrammingIcon />
-              <TileTitle>Programowanie PLC</TileTitle>
+              <TileTitle>
+                <FormattedMessage {...messages.plcProgrammingServiceTitle} />
+              </TileTitle>
               <ServiceList>
                 <FormattedMessage
                   {...messages.plcProgrammingServices}
