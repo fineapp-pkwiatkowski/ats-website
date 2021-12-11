@@ -10,6 +10,10 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${colors.greyLight};
   }
 
+  body {
+    overflow-x: hidden;
+  }
+
   *, *:before, *:after {
     box-sizing: inherit;
   }
