@@ -11,6 +11,7 @@ import { ROUTES } from './app.constants';
 //<-- IMPORT ROUTE -->
 
 const Home = asyncComponent(() => import('./home'), 'Home');
+const Report = asyncComponent(() => import('./report'), 'Report');
 
 const MatchedLanguageComponent = () => {
   const match = useRouteMatch();
@@ -19,6 +20,11 @@ const MatchedLanguageComponent = () => {
       <Switch>
         <Route exact path={`${match.path}${ROUTES.home}`}>
           <Home />
+          <Cookies />
+        </Route>
+
+        <Route path={`${match.path}${ROUTES.report}`}>
+          <Report />
           <Cookies />
         </Route>
 
