@@ -193,26 +193,30 @@ export const Header = () => {
     );
   };
 
+  const handleNavItemLink = () => {
+    !breakpoint.isDesktop && setMobileNavOpen(false);
+  };
+
   const renderNavigation = (white = false) => (
     <Navigation open={!breakpoint.isDesktop && mobileNavOpen}>
       {isReportPath && (
-        <NavItem white={white}>
+        <NavItem white={white} onClick={handleNavItemLink}>
           <Link to={ROUTES.home}>
             <FormattedMessage {...messages.homepage} />
           </Link>
         </NavItem>
       )}
-      <NavItem white={white}>
+      <NavItem white={white} onClick={handleNavItemLink}>
         <Link to={ROUTES.home} scrollTo={ACTIVITY_SECTION_NAME}>
           <FormattedMessage {...messages.activityLink} />
         </Link>
       </NavItem>
-      <NavItem white={white}>
+      <NavItem white={white} onClick={handleNavItemLink}>
         <Link to={ROUTES.home} scrollTo={ABOUT_SECTION_NAME}>
           <FormattedMessage {...messages.aboutLink} />
         </Link>
       </NavItem>
-      <NavItem white={white}>
+      <NavItem white={white} onClick={handleNavItemLink}>
         <Link to={ROUTES.home} scrollTo={CONTACT_SECTION_NAME}>
           <FormattedMessage {...messages.contactLink} />
         </Link>
@@ -234,9 +238,11 @@ export const Header = () => {
     <>
       <DummyMobileNavbar />
       <MobileNavbar scrolled={scrolledNav} style={animationProps}>
-        <LogoButton type="button" onClick={goToTop} aria-label={intl.formatMessage(messages.logoAriaLabelGoTop)}>
-          <MobileLogo white={scrolledNav && !mobileNavOpen} />
-        </LogoButton>
+        <Link to={ROUTES.home}>
+          <LogoButton onClick={goToTop}>
+            <MobileLogo white={scrolledNav && !mobileNavOpen} />
+          </LogoButton>
+        </Link>
         {renderBurgerMenuButton()}
         <NavMenu open={mobileNavOpen}>{renderNavigation(false)}</NavMenu>
       </MobileNavbar>
@@ -254,9 +260,11 @@ export const Header = () => {
 
       <Navbar visibile={showNav}>
         <NavbarContent>
-          <LogoButton type="button" onClick={goToTop} aria-label={intl.formatMessage(messages.logoAriaLabelGoTop)}>
-            <NavbarLogo />
-          </LogoButton>
+          <Link to={ROUTES.home}>
+            <LogoButton onClick={goToTop}>
+              <NavbarLogo />
+            </LogoButton>
+          </Link>
           {renderNavigation(true)}
         </NavbarContent>
       </Navbar>

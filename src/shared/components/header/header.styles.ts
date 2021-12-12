@@ -181,7 +181,7 @@ export const NavbarLogo = styled(NavbarLogoSVG)`
   height: auto;
 `;
 
-export const LogoButton = styled.button`
+export const LogoButton = styled.div`
   background: none;
   border: none;
   cursor: pointer;
