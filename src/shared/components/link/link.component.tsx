@@ -5,7 +5,13 @@ import { useSelector } from 'react-redux';
 import { localesSelectors } from '../../../modules/locales';
 import { Container } from './link.styles';
 
-export const Link = ({ to, children }: { to: string; children: ReactNode }) => {
+export interface Props {
+  to: string;
+  children: ReactNode;
+  scrollTo?: string;
+}
+
+export const Link = ({ to, children, scrollTo }: Props) => {
   const lang = useSelector(localesSelectors.selectLocalesLanguage);
   const history = useHistory();
 
@@ -13,6 +19,7 @@ export const Link = ({ to, children }: { to: string; children: ReactNode }) => {
     if (lang) {
       history.push({
         pathname: generatePath(`/:lang${to}`, { lang }),
+        state: scrollTo ? scrollTo : '',
       });
     }
   };

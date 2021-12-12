@@ -85,13 +85,6 @@ export const Header = () => {
 
   useLockBodyScroll(scrollLocked);
 
-  const SCROLL_PROPS = {
-    duration: 1000,
-    delay: 100,
-    smooth: true,
-    offset: breakpoint.isDesktop ? SCROLL_OFFSET_VALUE : SCROLL_OFFSET_VALUE_MOBILE,
-  };
-
   useEffect(() => {
     setShowHeader(true);
   }, []);
@@ -200,32 +193,30 @@ export const Header = () => {
     );
   };
 
-  const handleNavItemLink = (sectionId: string) => {
-    !breakpoint.isDesktop && setMobileNavOpen(false);
-    ReactScroll.scroller.scrollTo(sectionId, SCROLL_PROPS);
-  };
-
   const renderNavigation = (white = false) => (
     <Navigation open={!breakpoint.isDesktop && mobileNavOpen}>
-      {isReportPath ? (
-        <NavItem white={white} onClick={() => handleNavItemLink(ACTIVITY_SECTION_NAME)}>
+      {isReportPath && (
+        <NavItem white={white}>
           <Link to={ROUTES.home}>
             <FormattedMessage {...messages.homepage} />
           </Link>
         </NavItem>
-      ) : (
-        <>
-          <NavItem white={white} onClick={() => handleNavItemLink(ACTIVITY_SECTION_NAME)}>
-            <FormattedMessage {...messages.activityLink} />
-          </NavItem>
-          <NavItem white={white} onClick={() => handleNavItemLink(ABOUT_SECTION_NAME)}>
-            <FormattedMessage {...messages.aboutLink} />
-          </NavItem>
-          <NavItem white={white} onClick={() => handleNavItemLink(CONTACT_SECTION_NAME)}>
-            <FormattedMessage {...messages.contactLink} />
-          </NavItem>
-        </>
       )}
+      <NavItem white={white}>
+        <Link to={ROUTES.home} scrollTo={ACTIVITY_SECTION_NAME}>
+          <FormattedMessage {...messages.activityLink} />
+        </Link>
+      </NavItem>
+      <NavItem white={white}>
+        <Link to={ROUTES.home} scrollTo={ABOUT_SECTION_NAME}>
+          <FormattedMessage {...messages.aboutLink} />
+        </Link>
+      </NavItem>
+      <NavItem white={white}>
+        <Link to={ROUTES.home} scrollTo={CONTACT_SECTION_NAME}>
+          <FormattedMessage {...messages.contactLink} />
+        </Link>
+      </NavItem>
       {renderLanguageSelect(white)}
     </Navigation>
   );

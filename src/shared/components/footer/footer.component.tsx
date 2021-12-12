@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import ReactScroll from 'react-scroll';
 
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
@@ -31,19 +30,11 @@ const date = new Date();
 
 export const Footer = () => {
   const intl = useIntl();
-  const breakpoint = useBreakpoint();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     setVisible(true);
   }, []);
-
-  const SCROLL_PROPS = {
-    duration: 1000,
-    delay: 100,
-    smooth: true,
-    offset: breakpoint.isDesktop ? SCROLL_OFFSET_VALUE : SCROLL_OFFSET_VALUE_MOBILE,
-  };
 
   return (
     <Container visible={visible}>
@@ -54,17 +45,25 @@ export const Footer = () => {
 
         <ColumnContainer>
           <Column>
-            <FooterNavLink onClick={() => ReactScroll.scroller.scrollTo(ACTIVITY_SECTION_NAME, SCROLL_PROPS)}>
-              <FormattedMessage {...headerMessages.activityLink} />
+            <FooterNavLink>
+              <Link to={ROUTES.home} scrollTo={ACTIVITY_SECTION_NAME}>
+                <FormattedMessage {...headerMessages.activityLink} />
+              </Link>
             </FooterNavLink>
-            <FooterNavLink onClick={() => ReactScroll.scroller.scrollTo(ABOUT_SECTION_NAME, SCROLL_PROPS)}>
-              <FormattedMessage {...headerMessages.aboutLink} />
+            <FooterNavLink>
+              <Link to={ROUTES.home} scrollTo={ABOUT_SECTION_NAME}>
+                <FormattedMessage {...headerMessages.aboutLink} />
+              </Link>
             </FooterNavLink>
-            <FooterNavLink onClick={() => ReactScroll.scroller.scrollTo(PARTNERSHIP_SECTION_NAME, SCROLL_PROPS)}>
-              <FormattedMessage {...messages.customersLink} />
+            <FooterNavLink>
+              <Link to={ROUTES.home} scrollTo={PARTNERSHIP_SECTION_NAME}>
+                <FormattedMessage {...messages.customersLink} />
+              </Link>
             </FooterNavLink>
-            <FooterNavLink onClick={() => ReactScroll.scroller.scrollTo(CONTACT_SECTION_NAME, SCROLL_PROPS)}>
-              <FormattedMessage {...headerMessages.contactLink} />
+            <FooterNavLink>
+              <Link to={ROUTES.home} scrollTo={CONTACT_SECTION_NAME}>
+                <FormattedMessage {...headerMessages.contactLink} />
+              </Link>
             </FooterNavLink>
             <FooterNavLink>
               <Link to={ROUTES.report}>
