@@ -23,7 +23,7 @@ export const Container = styled(animated.section)`
   margin: 0 auto 30px;
 
   @media (min-width: ${sizes[Breakpoint.DESKTOP]}px) {
-    margin: ${SPACING_DESKTOP / 2}px auto ${SPACING_DESKTOP}px;
+    margin: ${SPACING_DESKTOP}px auto;
     padding: 0 ${SPACING_DESKTOP}px;
   }
 
