@@ -8,7 +8,15 @@ export const LOCALES = {
 
 export type MessagesObject = Record<string, string>;
 
-export const DEFAULT_LOCALE = LOCALES.POLISH;
+const getDefaultLocale = () => {
+  if (typeof navigator !== undefined) {
+    return navigator.language.toLowerCase().includes('pl') ? LOCALES.POLISH : LOCALES.ENGLISH;
+  }
+
+  return LOCALES.POLISH;
+};
+
+export const DEFAULT_LOCALE = getDefaultLocale();
 
 export const appLocales = [LOCALES.ENGLISH, LOCALES.POLISH];
 
@@ -24,8 +32,8 @@ export const formatTranslationMessages = (locale: string, messages: MessagesObje
 };
 
 export const translationMessages = {
-    // @ts-ignore
+  // @ts-ignore
   [LOCALES.ENGLISH]: formatTranslationMessages(LOCALES.ENGLISH, enTranslationMessages),
-    // @ts-ignore
+  // @ts-ignore
   [LOCALES.POLISH]: formatTranslationMessages(LOCALES.POLISH, plTranslationMessages),
 };

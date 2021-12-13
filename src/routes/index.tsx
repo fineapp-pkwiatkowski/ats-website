@@ -45,6 +45,10 @@ export default () => {
         <Redirect to={DEFAULT_LOCALE} />
       </Route>
 
+      <Route exact path={ROUTES.report}>
+        <Redirect to={`${DEFAULT_LOCALE}${ROUTES.report}`} />
+      </Route>
+
       <Route path={`/:lang(${appLocales.join('|')})`}>
         <MatchedLanguageComponent />
       </Route>
