@@ -10,4 +10,8 @@ export default defineMessages({
     id: `footer.customersLink`,
     defaultMessage: 'Klienci',
   },
+  reportLink: {
+    id: `footer.reportLink`,
+    defaultMessage: 'Zgłoszenie',
+  },
 });

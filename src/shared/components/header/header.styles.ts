@@ -10,7 +10,11 @@ import { Breakpoint, media, sizes } from '../../../theme/media';
 
 export const Container = styled.header``;
 
-export const TopHeader = styled(animated.div)`
+const topHeaderVisibleStyles = css`
+  opacity: 1;
+`;
+
+export const TopHeader = styled.div<{ visible: boolean }>`
   ${maxWidthStyles};
   width: 100%;
   padding: 40px ${SPACING_DESKTOP}px;
@@ -18,6 +22,10 @@ export const TopHeader = styled(animated.div)`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+
+  ${({ visible }) => (visible ? topHeaderVisibleStyles : null)}
 `;
 
 export const TopHeaderLogo = styled(LogoSVG)`
@@ -173,7 +181,7 @@ export const NavbarLogo = styled(NavbarLogoSVG)`
   height: auto;
 `;
 
-export const LogoButton = styled.button`
+export const LogoButton = styled.div`
   background: none;
   border: none;
   cursor: pointer;

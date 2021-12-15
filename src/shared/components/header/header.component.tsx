@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import ReactScroll from 'react-scroll';
+import { useLocation } from 'react-router-dom';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { useSelector } from 'react-redux';
 import { useClickAway, useLockBodyScroll } from 'react-use';
@@ -12,6 +13,8 @@ import { ABOUT_SECTION_NAME } from '../../aboutSection/aboutSection.component';
 import { CONTACT_SECTION_NAME } from '../contactSection/contactSection.component';
 import { useLanguageRouter } from '../languageSwitcher/useLanguageRouter.hook';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
+import { ROUTES } from '../../../routes/app.constants';
+import { Link } from '../link';
 import messages from './header.messages';
 import {
   Container,
@@ -60,6 +63,7 @@ const languageOptions = {
 export const goToTop = () => ReactScroll.animateScroll.scrollToTop();
 
 export const Header = () => {
+  const { pathname } = useLocation();
   const intl = useIntl();
   const breakpoint = useBreakpoint();
   const dropdownRef = useRef(null);
@@ -70,6 +74,8 @@ export const Header = () => {
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [scrollLocked, setScrollLocked] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
+  const isReportPath = pathname.includes(ROUTES.report);
   const animationProps = useSpring({
     opacity: 1,
     transform: 'translateY(0)',
@@ -79,12 +85,9 @@ export const Header = () => {
 
   useLockBodyScroll(scrollLocked);
 
-  const SCROLL_PROPS = {
-    duration: 1000,
-    delay: 100,
-    smooth: true,
-    offset: breakpoint.isDesktop ? SCROLL_OFFSET_VALUE : SCROLL_OFFSET_VALUE_MOBILE,
-  };
+  useEffect(() => {
+    setShowHeader(true);
+  }, []);
 
   const toggleLanguageDropdown = () => setShowLanguageDropdown(!showLanguageDropdown);
   const toggleNavMobileOpen = () => setMobileNavOpen(!mobileNavOpen);
@@ -190,21 +193,33 @@ export const Header = () => {
     );
   };
 
-  const handleNavItemLink = (sectionId: string) => {
+  const handleNavItemLink = () => {
     !breakpoint.isDesktop && setMobileNavOpen(false);
-    ReactScroll.scroller.scrollTo(sectionId, SCROLL_PROPS);
   };
 
   const renderNavigation = (white = false) => (
     <Navigation open={!breakpoint.isDesktop && mobileNavOpen}>
-      <NavItem white={white} onClick={() => handleNavItemLink(ACTIVITY_SECTION_NAME)}>
-        <FormattedMessage {...messages.activityLink} />
+      {isReportPath && (
+        <NavItem white={white} onClick={handleNavItemLink}>
+          <Link to={ROUTES.home}>
+            <FormattedMessage {...messages.homepage} />
+          </Link>
+        </NavItem>
+      )}
+      <NavItem white={white} onClick={handleNavItemLink}>
+        <Link to={ROUTES.home} scrollTo={ACTIVITY_SECTION_NAME}>
+          <FormattedMessage {...messages.activityLink} />
+        </Link>
       </NavItem>
-      <NavItem white={white} onClick={() => handleNavItemLink(ABOUT_SECTION_NAME)}>
-        <FormattedMessage {...messages.aboutLink} />
+      <NavItem white={white} onClick={handleNavItemLink}>
+        <Link to={ROUTES.home} scrollTo={ABOUT_SECTION_NAME}>
+          <FormattedMessage {...messages.aboutLink} />
+        </Link>
       </NavItem>
-      <NavItem white={white} onClick={() => handleNavItemLink(CONTACT_SECTION_NAME)}>
-        <FormattedMessage {...messages.contactLink} />
+      <NavItem white={white} onClick={handleNavItemLink}>
+        <Link to={ROUTES.home} scrollTo={CONTACT_SECTION_NAME}>
+          <FormattedMessage {...messages.contactLink} />
+        </Link>
       </NavItem>
       {renderLanguageSelect(white)}
     </Navigation>
@@ -223,9 +238,11 @@ export const Header = () => {
     <>
       <DummyMobileNavbar />
       <MobileNavbar scrolled={scrolledNav} style={animationProps}>
-        <LogoButton type="button" onClick={goToTop} aria-label={intl.formatMessage(messages.logoAriaLabelGoTop)}>
-          <MobileLogo white={scrolledNav && !mobileNavOpen} />
-        </LogoButton>
+        <Link to={ROUTES.home}>
+          <LogoButton onClick={goToTop}>
+            <MobileLogo white={scrolledNav && !mobileNavOpen} />
+          </LogoButton>
+        </Link>
         {renderBurgerMenuButton()}
         <NavMenu open={mobileNavOpen}>{renderNavigation(false)}</NavMenu>
       </MobileNavbar>
@@ -234,16 +251,20 @@ export const Header = () => {
 
   const renderDesktopHeader = () => (
     <Container>
-      <TopHeader style={animationProps}>
-        <TopHeaderLogo />
+      <TopHeader visible={showHeader} title={'Home'}>
+        <Link to={ROUTES.home}>
+          <TopHeaderLogo />
+        </Link>
         {renderNavigation()}
       </TopHeader>
 
       <Navbar visibile={showNav}>
         <NavbarContent>
-          <LogoButton type="button" onClick={goToTop} aria-label={intl.formatMessage(messages.logoAriaLabelGoTop)}>
-            <NavbarLogo />
-          </LogoButton>
+          <Link to={ROUTES.home}>
+            <LogoButton onClick={goToTop}>
+              <NavbarLogo />
+            </LogoButton>
+          </Link>
           {renderNavigation(true)}
         </NavbarContent>
       </Navbar>

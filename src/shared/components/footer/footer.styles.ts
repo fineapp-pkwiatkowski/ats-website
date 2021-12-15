@@ -11,10 +11,17 @@ import { colors } from '../../../theme/color';
 import { ReactComponent as LogoSVG } from '../../../images/ats-logo.svg';
 import { Breakpoint, sizes } from '../../../theme/media';
 
-export const Container = styled.footer`
+const containerVisibleStyles = css`
+  opacity: 1;
+`;
+
+export const Container = styled.footer<{ visible: boolean }>`
   ${sectionBlueStyles};
   margin-top: 0;
   padding: ${SPACING_MOBILE * 3}px ${SPACING_MOBILE * 2}px ${SPACING_MOBILE * 4}px;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+  ${({ visible }) => (visible ? containerVisibleStyles : null)}
 
   @media (min-width: ${sizes[Breakpoint.TABLET]}px) {
     margin-top: 0;
